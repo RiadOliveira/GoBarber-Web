@@ -31,7 +31,11 @@ export const AuthProvider: React.FC = ({ children }) => {
     });
 
     const signIn = useCallback(async ({ email, password }: Request) => {
-        const response = await api.post('/sessions', { email, password });
+        const response = await api.post('/sessions', {
+            email,
+            password,
+            confirmPassword: password,
+        });
 
         const { token, user } = response.data;
 
