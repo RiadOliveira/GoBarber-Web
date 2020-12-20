@@ -13,7 +13,7 @@ import { Container, Error } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     name: string;
-    icon: React.ComponentType<IconBaseProps>;
+    icon?: React.ComponentType<IconBaseProps>;
     containerStyle?: object;
 }
 
@@ -53,6 +53,7 @@ const Input: React.FC<InputProps> = ({
             isFilled={isFilled}
             isErrored={!!error}
             style={containerStyle}
+            data-testid="input-container"
         >
             {Icon && <Icon size={20} />}
             <input
